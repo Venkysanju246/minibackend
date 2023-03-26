@@ -8,7 +8,9 @@ const auth = require("../middleware/auth.middleware")
 mobilerouter.post("/add",auth, (req, res)=>{
     let mobileAdd = new MobileModel(req.body)
     mobileAdd.save()
-      res.send("Mobile added suceesfully")
+      res.send({
+        msg:"Mobile added suceesfully"
+      })
 })
 mobilerouter.get("/all",auth, async(req, res)=>{
   try {
